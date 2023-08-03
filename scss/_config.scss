@@ -1,13 +1,43 @@
+// color variables
 $primary-color: #444;
-$secondary-color: #eece1a;
+$primary-color-dark: #444;
+$primary-color-light: #F5F5F5;
+$text-color-dark: #fff;
+$text-color-light: #000;
+
+$secondary-color: #FF4B4B;
+//#eece1a;
+
+// ohter variables
 $show-image: true;
 $home-image: url(../img/hal-gatewood-tZc3vjPCk-Q-unsplash.jpg);
-$background-opacity: 0.9;
+$background-opacity: 0.8;
+
 
 
 @mixin easeOut {
     transition: all 0.5s ease-out;
 }
+
+// set theme color
+@mixin theme-colors($light-theme: true) {
+    @if $light-theme {
+      background: $primary-color-light;
+      color: $text-color-light; 
+    } @else {
+      background: $primary-color-dark;
+      color: $text-color-dark;
+    }
+  }
+
+// set text color
+@function set-theme-color($light-theme: true) {
+    @if $light-theme {
+      @return $primary-color-light;
+    } @else {
+      @return $primary-color-dark;
+    }
+  }
 
 @mixin background {
     @if $show-image {
@@ -24,20 +54,27 @@ $background-opacity: 0.9;
                 width:100%;
                 height: 100%;
                 z-index: -1;
-                background: rgba($primary-color,$background-opacity);
+                background: rgba(set-theme-color($light-theme: false),$background-opacity);
+
+                 html.light & {
+                    background: rgba(set-theme-color($light-theme: true), $background-opacity);
+                }
             }
         }
     }
 }
 
+
+
 // set text color
-@function set-text-color($color) {
- @if (lightness($color) > 40) {
-    @return #000;
+@function set-text-color($light-theme: true) {
+ @if $light-theme {
+    @return $text-color-light;
 }   @else {
-    @return #fff;
+    @return $text-color-dark;
 }
 }
+
 
 // Media query mixins
 

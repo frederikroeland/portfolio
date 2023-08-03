@@ -32,6 +32,12 @@
     &.show {
         transform: translate3d(0,0,0);
     }
+
+    .portrait {
+        background: url('../img/FRBIOPIC_small.jpg');
+        width: 150px;
+        height: 150px;
+    }
  }
  .menu-nav {
     height: 75vh;
@@ -43,11 +49,7 @@
     height: 25vh;
     transform: translate3d(100%,0,0);
  }
-.portrait {
-    background: url('../img/FRBIOPIC_small.jpg');
-    width: 150px;
-    height: 150px;
-}
+
 
 .about-info {
     grid-template-areas: 
@@ -68,6 +70,7 @@
 
 // Smartphones
 @include mediaS {
+   
 
     main#home h1 {
         margin-top: 10vh;

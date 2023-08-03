@@ -3,7 +3,7 @@
     position: absolute;
     z-index: 3;
     right: 35px;
-    top: 35px;
+    top: 20px;
     cursor: pointer;
     @include easeOut;
 
@@ -11,8 +11,11 @@
         width: 28px;
         height: 3px;
         margin: 0 0 5px 0;
-        background: set-text-color($primary-color);
         @include easeOut;
+        background: set-text-color($light-theme: false);
+        html.light & {
+            background: set-text-color($light-theme: true);
+        }
     }
 
     // rotate into x with menu lines
@@ -66,7 +69,10 @@
     &-nav {
         margin: 0;
         padding: 0;
-        background: darken($primary-color, 5);
+        background: darken(set-theme-color($light-theme: false), 5);
+        html.light & {
+            background: darken(set-theme-color($light-theme: true),5);
+        }
         list-style: none;
         transform: translate3d(0,-100%,0);
         @include easeOut;
@@ -79,7 +85,11 @@
 
     //branding side
     &-branding {
-        background-color: $primary-color;
+        //background-color: $primary-color;
+        @include theme-colors($light-theme: false);
+        html.light & {
+            @include theme-colors($light-theme: true);    
+        }
         @include easeOut;
         transform: translate3d(0,100%,0);
 
@@ -109,6 +119,16 @@
         &.current > a {
             color: $secondary-color;
         }
+
+        &.nav-link {
+            color: set-text-color($light-theme: false);
+            html.light & {
+            color: set-text-color($light-theme: true);
+            .current & {
+                color: $secondary-color;
+            }
+            }
+        }
     }
 
     .nav-link {
@@ -118,7 +138,11 @@
         text-transform: uppercase;
         padding: 1rem 0;
         font-weight: 300;
-        color: set-text-color($primary-color);
+        //color: set-text-color($primary-color);
+        // color: set-text-color($light-theme: false);
+        // html.light & {
+        // color: set-text-color($light-theme: true);
+        // }  
         text-decoration: none;
         @include easeOut;
 
