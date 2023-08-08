@@ -104,7 +104,22 @@
         height: 250px;
         background: url('../img/FRBIOPIC.jpg');
         border-radius: 50%;
-        border: solid 3px $secondary-color;
+        //border: solid 3px $secondary-color;
+        html.yellow & {
+            border: solid 3px set-secondary-color($yellow-theme: true) ; 
+        }  
+        
+        html.blue &  {
+            border: solid 3px set-secondary-color($blue-theme : true, $yellow-theme: false) ; 
+        }
+        html.green &   {
+            border: solid 3px set-secondary-color($green-theme : true, $yellow-theme: false) ; 
+        }
+
+        html.red &   {
+            border: solid 3px set-secondary-color($red-theme : true, $yellow-theme: false) ; 
+        }                
+
     }
 
     .nav-item {
@@ -117,7 +132,22 @@
         }
 
         &.current > a {
-            color: $secondary-color;
+            //color: $secondary-color;
+            html.yellow & {
+                color: set-secondary-color($yellow-theme: true) ; 
+            }  
+            
+            html.blue &  {
+                color: set-secondary-color($blue-theme : true, $yellow-theme: false) ; 
+            }
+            html.green &   {
+                color: set-secondary-color($green-theme : true, $yellow-theme: false) ; 
+            }
+    
+            html.red &   {
+                color: set-secondary-color($red-theme : true, $yellow-theme: false) ; 
+            }                
+    
         }
 
         &.nav-link {
@@ -147,7 +177,22 @@
         @include easeOut;
 
         &:hover {
-            color: $secondary_color;
+            //color: $secondary_color;
+            html.yellow & {
+                color: set-secondary-color($yellow-theme: true) ; 
+            }  
+            
+            html.blue &  {
+                color: set-secondary-color($blue-theme : true, $yellow-theme: false) ; 
+            }
+            html.green &   {
+                color: set-secondary-color($green-theme : true, $yellow-theme: false) ; 
+            }
+    
+            html.red &   {
+                color: set-secondary-color($red-theme : true, $yellow-theme: false) ; 
+            }                
+
         }
     }
 }

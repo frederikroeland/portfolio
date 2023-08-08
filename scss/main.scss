@@ -96,6 +96,8 @@ header {
     align-items: center;
     margin-top: 1rem;
     margin-left: 1rem;
+    //padding-bottom: 10rem;
+    //border-bottom: solid 1px #fff;
 
 
 }
@@ -130,7 +132,23 @@ main {
         a {
             padding: 0.4rem;
             &:hover {
-                color: $secondary-color;
+                //color: $secondary-color;
+                html.yellow &   {
+                    color: set-secondary-color($yellow-theme: true);
+                    }
+                    html.blue &  {
+                        color: set-secondary-color($blue-theme: true, $yellow-theme: false);
+                
+                        }
+                    html.green &   {
+                        color: set-secondary-color($green-theme: true, $yellow-theme: false);
+                        }
+                    
+                    html.red &   {
+                        color: set-secondary-color($red-theme: true, $yellow-theme: false);
+                 
+                        }
+            
                 @include easeOut();
             }
         }
@@ -196,9 +214,27 @@ main {
     .job-3 {
         grid-area: job3;
     }
+
+    h3 {
+        html.yellow & {
+            color: darken(set-secondary-color($yellow-theme: true),10); 
+    }  
+    html.blue &  {
+        color: darken(set-secondary-color($blue-theme: true, $yellow-theme:false),10);           
+            }
+    html.green &   {
+        color: darken(set-secondary-color($green-theme: true , $yellow-theme:false),10);                 
+          }
+
+    html.red &   {
+        color: darken(set-secondary-color($red-theme: true, $yellow-theme: false ),10);             
+            }                
+    }     
+
     
     .job {       
-
+        border-top-left-radius: 5%;
+        border-top-right-radius: 5%;
         padding: 0.5rem;
         //border-bottom: $secondary-color 5px solid;
         html.yellow &   {
@@ -220,27 +256,10 @@ main {
 
         background: lighten(set-theme-color($light-theme: false),5);
  
-        // html.light & { background: lighten($secondary-color,30);
-        // }
-             
-        html.yellow.light & {
-            background: lighten(set-secondary-color($yellow-theme: true),30); 
-    }                  
-        html.blue.light &  {
-            background: lighten(set-secondary-color($blue-theme: true, $yellow-theme:false),30);           
-                }
-        html.green.light &   {
-            background: lighten(set-secondary-color($green-theme: true , $yellow-theme:false),30);                 
-              }
-    
-        html.red.light &   {
-            background: lighten(set-secondary-color($red-theme: true, $yellow-theme: false ),30);             
-                }
- 
-
-    
+         html.light & { background: lighten(set-theme-color($light-theme: true),30);
+         }
+         
     }
-
 }
 
 // project / work css
@@ -258,13 +277,43 @@ main {
             border: 3px set-text-color($light-theme: true) solid;
             &:hover {
                 opacity: 0.5;
-                border-color: $secondary-color;
+                //border-color: $secondary-color;
+                html.yellow & {
+                    border-color: set-secondary-color($yellow-theme: true) ; 
+                }  
+                
+                html.blue &  {
+                    border-color: set-secondary-color($blue-theme : true, $yellow-theme: false) ; 
+                }
+                html.green &   {
+                    border-color: set-secondary-color($green-theme : true, $yellow-theme: false) ; 
+                }
+        
+                html.red &   {
+                    border-color: set-secondary-color($red-theme : true, $yellow-theme: false) ; 
+                }                
+    
                 @include easeOut;
             }
         }
         &:hover {
             opacity: 0.5;
-            border-color: $secondary-color;
+            //border-color: $secondary-color;
+            html.yellow & {
+                border-color: set-secondary-color($yellow-theme: true) ; 
+            }  
+            
+            html.blue &  {
+                border-color: set-secondary-color($blue-theme : true, $yellow-theme: false) ; 
+            }
+            html.green &   {
+                border-color: set-secondary-color($green-theme : true, $yellow-theme: false) ; 
+            }
+    
+            html.red &   {
+                border-color: set-secondary-color($red-theme : true, $yellow-theme: false) ; 
+            }                
+
             @include easeOut;
         }
        
@@ -291,8 +340,21 @@ main {
         margin-bottom: 3rem;
     &:hover {
         padding: 1.3rem 2.3rem;
-        background: $secondary-color;
-        color: set-text-color($secondary-color);
+        //background: $secondary-color;
+        html.yellow & {
+            background: set-secondary-color($yellow-theme: true); 
+    }  
+        html.blue &  {
+        background: set-secondary-color($blue-theme: true, $yellow-theme:false);           
+            }
+        html.green &   {
+        background: set-secondary-color($green-theme: true , $yellow-theme:false);                 
+          }
+    
+        html.red &   {
+        background: set-secondary-color($red-theme: true, $yellow-theme: false );             
+            }                
+            color: set-text-color($secondary-color);
 
         span {
             color: set-text-color($secondary-color);        
@@ -316,14 +378,44 @@ main {
 
 .btn-dark {
     @extend .btn;
-    background: darken($primary-color,50);
+    //background: darken($primary-color,50);
+    html.yellow & {
+        background: darken(set-secondary-color($yellow-theme: true),50); 
+}  
+    html.blue &  {
+    background: darken(set-secondary-color($blue-theme: true, $yellow-theme:false),50);           
+        }
+    html.green &   {
+    background: darken(set-secondary-color($green-theme: true , $yellow-theme:false),50);                 
+      }
+
+    html.red &   {
+    background: darken(set-secondary-color($red-theme: true, $yellow-theme: false ),50);             
+        }                
+
+
     color: #fff;
 }
 
 
 .btn-light {
     @extend .btn;
-    background: lighten($primary-color,50);
+    //background: lighten($primary-color,50);
+    html.yellow.light & {
+        background: lighten(set-secondary-color($yellow-theme: true),20); 
+}  
+    html.blue.light &  {
+    background: lighten(set-secondary-color($blue-theme: true, $yellow-theme:false),20);           
+        }
+    html.green.light &   {
+    background: lighten(set-secondary-color($green-theme: true , $yellow-theme:false),20);                 
+      }
+
+    html.red.light &   {
+    background: lighten(set-secondary-color($red-theme: true, $yellow-theme: false ),20);             
+        }                
+
+
     color: #333;
 
 }
@@ -344,17 +436,17 @@ main {
    //background-color: lighten(set-secondary-color($yellow-theme: true),10);
          
         html.yellow.light & {
-                background-color: lighten(set-secondary-color($yellow-theme: true),10); 
+                color: lighten(set-secondary-color($yellow-theme: true),10); 
         }                  
         html.blue.light &  {
-                background-color: lighten(set-secondary-color($blue-theme: true, $yellow-theme:false),10);           
+                color: lighten(set-secondary-color($blue-theme: true, $yellow-theme:false),10);           
                     }
         html.green.light &   {
-                background-color: lighten(set-secondary-color($green-theme: true , $yellow-theme:false),10);                 
+                color: lighten(set-secondary-color($green-theme: true , $yellow-theme:false),10);                 
                   }
         
         html.red.light &   {
-                background-color: lighten(set-secondary-color($red-theme: true, $yellow-theme: false ),10);             
+                color: lighten(set-secondary-color($red-theme: true, $yellow-theme: false ),10);             
                     }
      
     

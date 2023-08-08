@@ -13,12 +13,7 @@
     display: flex;
     gap: 2rem;
     width: fit-content;
-    //background: #fff;
-    @include theme-colors($light-theme: false);
-    html.light & {
-        @include theme-colors($light-theme: true);
-    }
-    padding: 1rem 3rem;
+   padding: 1rem 3rem;
     margin-inline: auto;
     border-radius: 0 0 1rem 1rem;
   }

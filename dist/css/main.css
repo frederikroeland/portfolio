@@ -12,14 +12,9 @@
   display: flex;
   gap: 2rem;
   width: fit-content;
-  background: #444;
-  color: #fff;
   padding: 1rem 3rem;
   margin-inline: auto;
   border-radius: 0 0 1rem 1rem; }
-  html.light .color-picker > fieldset {
-    background: #E6E6E6;
-    color: #404040; }
 
 .color-picker input[type="radio"] {
   appearance: none;
@@ -110,14 +105,27 @@
     width: 250px;
     height: 250px;
     background: url("../img/FRBIOPIC.jpg");
-    border-radius: 50%;
-    border: solid 3px #ff5253; }
+    border-radius: 50%; }
+    html.yellow .menu .portrait {
+      border: solid 3px #eece1a; }
+    html.blue .menu .portrait {
+      border: solid 3px #2196f3; }
+    html.green .menu .portrait {
+      border: solid 3px #4caf50; }
+    html.red .menu .portrait {
+      border: solid 3px #ff5253; }
   .menu .nav-item {
     transform: translate3d(600px, 0, 0);
     transition: all 0.5s ease-out; }
     .menu .nav-item.show {
       transform: translate3d(0, 0, 0); }
-    .menu .nav-item.current > a {
+    html.yellow .menu .nav-item.current > a {
+      color: #eece1a; }
+    html.blue .menu .nav-item.current > a {
+      color: #2196f3; }
+    html.green .menu .nav-item.current > a {
+      color: #4caf50; }
+    html.red .menu .nav-item.current > a {
       color: #ff5253; }
     .menu .nav-item.nav-link {
       color: #fff; }
@@ -134,7 +142,13 @@
     font-weight: 300;
     text-decoration: none;
     transition: all 0.5s ease-out; }
-    .menu .nav-link:hover {
+    html.yellow .menu .nav-link:hover {
+      color: #eece1a; }
+    html.blue .menu .nav-link:hover {
+      color: #2196f3; }
+    html.green .menu .nav-link:hover {
+      color: #4caf50; }
+    html.red .menu .nav-link:hover {
       color: #ff5253; }
 
 .nav-item:nth-child(1) {
@@ -242,8 +256,15 @@ main {
     main .icons a {
       padding: 0.4rem; }
       main .icons a:hover {
-        color: #ff5253;
         transition: all 0.5s ease-out; }
+        html.yellow main .icons a:hover {
+          color: #eece1a; }
+        html.blue main .icons a:hover {
+          color: #2196f3; }
+        html.green main .icons a:hover {
+          color: #4caf50; }
+        html.red main .icons a:hover {
+          color: #ff5253; }
   main#home {
     overflow: hidden; }
     main#home h1 {
@@ -278,7 +299,17 @@ main {
     grid-area: job2; }
   .about-info .job-3 {
     grid-area: job3; }
+  html.yellow .about-info h3 {
+    color: #c6ab0f; }
+  html.blue .about-info h3 {
+    color: #0c7cd5; }
+  html.green .about-info h3 {
+    color: #3d8b40; }
+  html.red .about-info h3 {
+    color: #ff1f20; }
   .about-info .job {
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
     padding: 0.5rem;
     background: #515151; }
     html.yellow .about-info .job {
@@ -289,14 +320,8 @@ main {
       border-bottom: solid 5px #4caf50; }
     html.red .about-info .job {
       border-bottom: solid 5px #ff5253; }
-    html.yellow.light .about-info .job {
-      background: #f9eca8; }
-    html.blue.light .about-info .job {
-      background: #b2dbfb; }
-    html.green.light .about-info .job {
-      background: #b5dfb7; }
-    html.red.light .about-info .job {
-      background: #ffebeb; }
+    html.light .about-info .job {
+      background: white; }
 
 .projects {
   display: grid;
@@ -309,12 +334,26 @@ main {
       border: 3px #404040 solid; }
       html.light .projects img:hover {
         opacity: 0.5;
-        border-color: #ff5253;
         transition: all 0.5s ease-out; }
+        html.yellow html.light .projects img:hover {
+          border-color: #eece1a; }
+        html.blue html.light .projects img:hover {
+          border-color: #2196f3; }
+        html.green html.light .projects img:hover {
+          border-color: #4caf50; }
+        html.red html.light .projects img:hover {
+          border-color: #ff5253; }
     .projects img:hover {
       opacity: 0.5;
-      border-color: #ff5253;
       transition: all 0.5s ease-out; }
+      html.yellow .projects img:hover {
+        border-color: #eece1a; }
+      html.blue .projects img:hover {
+        border-color: #2196f3; }
+      html.green .projects img:hover {
+        border-color: #4caf50; }
+      html.red .projects img:hover {
+        border-color: #ff5253; }
 
 .boxes {
   display: flex;
@@ -331,8 +370,15 @@ main {
       border: 3px #404040 solid; }
     .boxes div:hover {
       padding: 1.3rem 2.3rem;
-      background: #ff5253;
       color: #404040; }
+      html.yellow .boxes div:hover {
+        background: #eece1a; }
+      html.blue .boxes div:hover {
+        background: #2196f3; }
+      html.green .boxes div:hover {
+        background: #4caf50; }
+      html.red .boxes div:hover {
+        background: #ff5253; }
       .boxes div:hover span {
         color: #404040; }
 
@@ -346,12 +392,26 @@ main {
     color: #404040; }
 
 .btn-dark {
-  background: black;
   color: #fff; }
+  html.yellow .btn-dark {
+    background: #080701; }
+  html.blue .btn-dark {
+    background: #010c14; }
+  html.green .btn-dark {
+    background: black; }
+  html.red .btn-dark {
+    background: #520000; }
 
 .btn-light {
-  background: #c4c4c4;
   color: #333; }
+  html.yellow.light .btn-light {
+    background: #f5e279; }
+  html.blue.light .btn-light {
+    background: #82c4f8; }
+  html.green.light .btn-light {
+    background: #92cf94; }
+  html.red.light .btn-light {
+    background: #ffb8b8; }
 
 #main-footer {
   bottom: 0;
@@ -364,13 +424,13 @@ main {
   color: #fff;
   height: 60px; }
   html.yellow.light #main-footer {
-    background-color: #f2d849; }
+    color: #f2d849; }
   html.blue.light #main-footer {
-    background-color: #51adf6; }
+    color: #51adf6; }
   html.green.light #main-footer {
-    background-color: #6ec071; }
+    color: #6ec071; }
   html.red.light #main-footer {
-    background-color: #ff8586; }
+    color: #ff8586; }
   html.light #main-footer {
     color: #404040; }
 
