@@ -1,4 +1,5 @@
 @import 'config';
+@import 'color_picker';
 @import 'menu';
 
 * {
@@ -33,7 +34,23 @@ body {
     cursor: pointer;
     @include easeOut;
     &:hover {
-        color: $secondary-color;
+        //color: $secondary-color;
+        html.yellow &   {
+            color: set-secondary-color($yellow-theme: true);
+            }
+            html.blue &  {
+                color: set-secondary-color($blue-theme: true, $yellow-theme: false);
+        
+                }
+            html.green &   {
+                color: set-secondary-color($green-theme: true, $yellow-theme: false);
+                }
+            
+            html.red &   {
+                color: set-secondary-color($red-theme: true, $yellow-theme: false);
+         
+                }
+                
         @include easeOut();
     }
 
@@ -68,13 +85,14 @@ a {
 }
 
 header {
-    position: fixed;
+    position: absolute;
     z-index: 2;
     width: 100%;
-    height: 10vh;
+    height: 8vh;
     display: flex;
+    //flex-direction: column;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     margin-top: 1rem;
     margin-left: 1rem;
@@ -83,7 +101,22 @@ header {
 }
 
 .text-secondary {
-    color: $secondary-color;
+    html.yellow &   {
+        color: set-secondary-color($yellow-theme: true);
+        }
+        html.blue &  {
+            color: set-secondary-color($blue-theme: true, $yellow-theme: false);
+    
+            }
+        html.green &   {
+            color: set-secondary-color($green-theme: true, $yellow-theme: false);
+            }
+        
+        html.red &   {
+            color: set-secondary-color($red-theme: true, $yellow-theme: false);
+     
+            }
+
 }
 
 main {
@@ -128,7 +161,23 @@ main {
         height: 250px;
         background: url('../img/FRBIOPIC.jpg');
         border-radius: 50%;
-        border: solid 3px $secondary-color;    
+        //border: solid 3px $secondary-color;
+        html.yellow &   {
+            border: solid 3px set-secondary-color($yellow-theme: true);
+            }
+            html.blue &  {
+                border: solid 3px set-secondary-color($blue-theme: true, $yellow-theme: false);
+        
+                }
+            html.green &   {
+                border: solid 3px set-secondary-color($green-theme: true, $yellow-theme: false);
+                }
+            
+            html.red &   {
+                border: solid 3px set-secondary-color($red-theme: true, $yellow-theme: false);
+         
+                }
+    
     }
     
     .bio {
@@ -151,12 +200,44 @@ main {
     .job {       
 
         padding: 0.5rem;
-        border-bottom: $secondary-color 5px solid;
+        //border-bottom: $secondary-color 5px solid;
+        html.yellow &   {
+            border-bottom: solid 5px set-secondary-color($yellow-theme: true);
+            }
+            html.blue &  {
+                border-bottom: solid 5px set-secondary-color($blue-theme: true, $yellow-theme: false);
+        
+                }
+            html.green &   {
+                border-bottom: solid 5px set-secondary-color($green-theme: true, $yellow-theme: false);
+                }
+            
+            html.red &   {
+                border-bottom: solid 5px set-secondary-color($red-theme: true, $yellow-theme: false);
+         
+                }
+ 
 
         background: lighten(set-theme-color($light-theme: false),5);
  
-        html.light & { background: lighten($secondary-color,25);
-        }
+        // html.light & { background: lighten($secondary-color,30);
+        // }
+             
+        html.yellow.light & {
+            background: lighten(set-secondary-color($yellow-theme: true),30); 
+    }                  
+        html.blue.light &  {
+            background: lighten(set-secondary-color($blue-theme: true, $yellow-theme:false),30);           
+                }
+        html.green.light &   {
+            background: lighten(set-secondary-color($green-theme: true , $yellow-theme:false),30);                 
+              }
+    
+        html.red.light &   {
+            background: lighten(set-secondary-color($red-theme: true, $yellow-theme: false ),30);             
+                }
+ 
+
     
     }
 
@@ -260,10 +341,25 @@ main {
 
     //background: darken($primary-color,10);
     background-color: darken(set-theme-color($light-theme: false),10);
-
-        html.light & {
-            background-color: lighten($secondary-color,10);
-        }
+   //background-color: lighten(set-secondary-color($yellow-theme: true),10);
+         
+        html.yellow.light & {
+                background-color: lighten(set-secondary-color($yellow-theme: true),10); 
+        }                  
+        html.blue.light &  {
+                background-color: lighten(set-secondary-color($blue-theme: true, $yellow-theme:false),10);           
+                    }
+        html.green.light &   {
+                background-color: lighten(set-secondary-color($green-theme: true , $yellow-theme:false),10);                 
+                  }
+        
+        html.red.light &   {
+                background-color: lighten(set-secondary-color($red-theme: true, $yellow-theme: false ),10);             
+                    }
+     
+    
+            
+        
     //color: set-text-color($primary-color);
     color: set-text-color($light-theme: false);
     html.light & {

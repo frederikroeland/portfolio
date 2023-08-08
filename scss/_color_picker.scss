@@ -1,0 +1,65 @@
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+.color-picker > fieldset {
+    border: 0;
+    display: flex;
+    gap: 2rem;
+    width: fit-content;
+    //background: #fff;
+    @include theme-colors($light-theme: false);
+    html.light & {
+        @include theme-colors($light-theme: true);
+    }
+    padding: 1rem 3rem;
+    margin-inline: auto;
+    border-radius: 0 0 1rem 1rem;
+  }
+  
+  .color-picker input[type="radio"] {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    &.yellow   {
+    outline: 3px solid set-secondary-color($yellow-theme: true);
+    &:checked {
+        background-color: set-secondary-color($yellow-theme: true);
+    }   
+    }
+    &.blue   {
+        outline: 3px solid set-secondary-color($blue-theme: true, $yellow-theme: false);
+        &:checked {
+            background-color: set-secondary-color($blue-theme: true, $yellow-theme: false);
+        }   
+
+        }
+    &.green   {
+        outline: 3px solid set-secondary-color($green-theme: true, $yellow-theme: false);
+        &:checked {
+            background-color: set-secondary-color($green-theme: true, $yellow-theme: false);
+        }   
+        }
+    
+    &.red   {
+        outline: 3px solid set-secondary-color($red-theme: true, $yellow-theme: false);
+        &:checked {
+            background-color: set-secondary-color($red-theme: true, $yellow-theme: false);
+        }   
+ 
+        }
+
+        
+    outline-offset: 3px;
+    border-radius: 50%;
+    //   &:checked {
+    //     background-color: $radio-color;
+    // }
+  }
+  

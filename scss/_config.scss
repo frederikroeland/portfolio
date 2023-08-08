@@ -1,13 +1,18 @@
 // color variables
-$primary-color: #444;
-$primary-color-dark: #444;
-$primary-color-light: #F5F5F5;
-$text-color-dark: #fff;
-$text-color-light: #000;
+    $primary-color: #444;
+    $primary-color-dark: #444;
+    $primary-color-light: #E6E6E6;
+    $text-color-dark: #fff;
+    $text-color-light: #404040;  
+    
+    
+    $secondary-color: #ff5253;
+    $yellow-color: #eece1a;
+    $red-color: #ff5253;
+    $blue-color: #2196f3;
+    $green-color: #4caf50;
 
-$secondary-color: #FF4B4B;
-//#eece1a;
-
+    
 // ohter variables
 $show-image: true;
 $home-image: url(../img/hal-gatewood-tZc3vjPCk-Q-unsplash.jpg);
@@ -75,6 +80,18 @@ $background-opacity: 0.8;
 }
 }
 
+// set the secondary color
+@function set-secondary-color($yellow-theme: true, $red-theme: false, $green-theme: false, $blue-theme:false ) {
+    @if $yellow-theme {
+        @return $yellow-color;
+    } @else if  $blue-theme  {
+        @return $blue-color;
+    } @else if  $green-theme {
+        @return $green-color;
+    } @else if $red-color {
+        @return $red-color;
+    }
+}
 
 // Media query mixins
 

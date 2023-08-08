@@ -6,6 +6,7 @@ const menuBranding = document.querySelector('.menu-branding');
 const navItems = document.querySelectorAll('.nav-item');
 const themeButton = document.querySelector('.toggle-theme');
 const html = document.querySelector('html');
+const colorThemes = document.querySelectorAll('[name="theme"]');
 
 // Set initial state of menu and theme
 let showMenu = false;
@@ -13,27 +14,46 @@ let darkTheme = (JSON.parse(localStorage.getItem('darkTheme') !== null))
     ? JSON.parse(localStorage.getItem('darkTheme'))  
     : true ;
 
-// on page load, apply selected theme
-if(themeButton) {
-    initTheme();
-};
 
 //event listeners
 menuButton.addEventListener('click',toggleMenu);
 themeButton.addEventListener('click',switchTheme);
 
-function initTheme() {
+colorThemes.forEach((themeOption) => {
+    themeOption.addEventListener("click", () => {
+      storeTheme(themeOption.id);
+      let darkTheme = JSON.parse(localStorage.getItem('darkTheme'));
+      let fullTheme = themeOption.id;
+      if(!darkTheme) {
+        fullTheme = fullTheme + " light"; 
+      }
+      console.log(fullTheme);
+      // fallback for no :has() support
+    //   document.documentElement.className = themeOption.id;
+      document.documentElement.className = fullTheme;
+    })
+  });
+  
+
+// initiate last saved dark theme, used later to add on document class
+
+function initDarkTheme() {
     //console.log(localStorage.getItem('darkTheme'));
     let lightThemeSelected = (localStorage.getItem('darkTheme') !== null 
     && JSON.parse(localStorage.getItem('darkTheme')) === false);
+ 
+    //setColorTheme();
+ 
     //console.log(darkThemeSelected);
     if(lightThemeSelected) {
         html.classList.add('light'); 
         themeButton.classList.remove('fa-sun');
         themeButton.classList.add('fa-moon');
     } 
+ 
 }
 
+// function for menu right
 function toggleMenu() {
     // menu is not shown
     if(!showMenu) {
@@ -59,6 +79,8 @@ function toggleMenu() {
     }
 }
 
+
+// function to swith dark/light the theme
 function switchTheme() {
     if(darkTheme) {
         html.classList.add('light'); 
@@ -77,3 +99,29 @@ function switchTheme() {
     }
 
 }
+
+// function to swith color theme
+// store theme
+const storeTheme = function (theme) {
+    localStorage.setItem("secondaryTheme", theme);
+  };
+
+// set theme when visitor returns
+const setThemes = function () {
+    const activeTheme = localStorage.getItem("secondaryTheme");
+    colorThemes.forEach((themeOption) => {
+      if (themeOption.id === activeTheme) {
+        themeOption.checked = true;
+      }
+    });
+
+     
+    // fallback for no :has() support
+    document.documentElement.className = activeTheme;
+    initDarkTheme();
+  };
+  
+  document.onload = setThemes();
+  
+
+  
