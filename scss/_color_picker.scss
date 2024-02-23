@@ -23,14 +23,21 @@
     width: 1.5rem;
     height: 1.5rem;
     &.yellow   {
-    outline: 3px solid set-secondary-color($yellow-theme: true);
-    &:checked {
-        background-color: set-secondary-color($yellow-theme: true);
-    }   
-    }
+        outline: 3px solid set-secondary-color($yellow-theme: true);
+        &:checked  {
+            background-color: set-secondary-color($yellow-theme: true);
+        }   
+        
+        &:hover  {
+            background-color: set-secondary-color($yellow-theme: true);
+        }   
+        }
     &.blue   {
         outline: 3px solid set-secondary-color($blue-theme: true, $yellow-theme: false);
         &:checked {
+            background-color: set-secondary-color($blue-theme: true, $yellow-theme: false);
+        }   
+        &:hover {
             background-color: set-secondary-color($blue-theme: true, $yellow-theme: false);
         }   
 
@@ -40,17 +47,23 @@
         &:checked {
             background-color: set-secondary-color($green-theme: true, $yellow-theme: false);
         }   
-        }
+        &:hover {
+            background-color: set-secondary-color($green-theme: true, $yellow-theme: false);
+        }   
+
+    }
     
     &.red   {
         outline: 3px solid set-secondary-color($red-theme: true, $yellow-theme: false);
         &:checked {
             background-color: set-secondary-color($red-theme: true, $yellow-theme: false);
         }   
- 
-        }
+        &:hover {
+            background-color: set-secondary-color($red-theme: true, $yellow-theme: false);
+        }   
 
-        
+        }
+           
     outline-offset: 3px;
     border-radius: 50%;
     //   &:checked {

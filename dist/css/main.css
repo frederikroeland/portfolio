@@ -26,17 +26,25 @@
     outline: 3px solid #eece1a; }
     .color-picker input[type="radio"].yellow:checked {
       background-color: #eece1a; }
+    .color-picker input[type="radio"].yellow:hover {
+      background-color: #eece1a; }
   .color-picker input[type="radio"].blue {
     outline: 3px solid #2196f3; }
     .color-picker input[type="radio"].blue:checked {
+      background-color: #2196f3; }
+    .color-picker input[type="radio"].blue:hover {
       background-color: #2196f3; }
   .color-picker input[type="radio"].green {
     outline: 3px solid #4caf50; }
     .color-picker input[type="radio"].green:checked {
       background-color: #4caf50; }
+    .color-picker input[type="radio"].green:hover {
+      background-color: #4caf50; }
   .color-picker input[type="radio"].red {
     outline: 3px solid #ff5253; }
     .color-picker input[type="radio"].red:checked {
+      background-color: #ff5253; }
+    .color-picker input[type="radio"].red:hover {
       background-color: #ff5253; }
 
 .menu-btn {
@@ -354,6 +362,19 @@ main {
         border-color: #4caf50; }
       html.red .projects img:hover {
         border-color: #ff5253; }
+
+.text-under-image {
+  background: #444;
+  color: #fff;
+  color: #fff;
+  padding: 1rem;
+  margin-top: 0%;
+  text-align: center; }
+  html.light .text-under-image {
+    background: #E6E6E6;
+    color: #404040; }
+  html.light .text-under-image {
+    color: #404040; }
 
 .boxes {
   display: flex;

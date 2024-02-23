@@ -320,6 +320,21 @@ main {
     }
 }
 
+.text-under-image {
+    @include theme-colors($light-theme: false);
+    html.light & {
+        @include theme-colors($light-theme: true);    
+    }
+         color: set-text-color($light-theme: false);
+         html.light & {
+        color: set-text-color($light-theme: true);
+           }
+           padding: 1rem;
+       margin-top: 0%;
+       text-align: center; 
+
+    }
+
 // contact page
 
 .boxes {
