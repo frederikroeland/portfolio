@@ -1,0 +1,503 @@
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px; }
+
+.color-picker > fieldset {
+  border: 0;
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  padding: 1rem 3rem;
+  margin-inline: auto;
+  border-radius: 0 0 1rem 1rem; }
+
+.color-picker input[type="radio"] {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  outline-offset: 3px;
+  border-radius: 50%; }
+  .color-picker input[type="radio"].yellow {
+    outline: 3px solid #eece1a; }
+    .color-picker input[type="radio"].yellow:checked {
+      background-color: #eece1a; }
+    .color-picker input[type="radio"].yellow:hover {
+      background-color: #eece1a; }
+  .color-picker input[type="radio"].blue {
+    outline: 3px solid #2196f3; }
+    .color-picker input[type="radio"].blue:checked {
+      background-color: #2196f3; }
+    .color-picker input[type="radio"].blue:hover {
+      background-color: #2196f3; }
+  .color-picker input[type="radio"].green {
+    outline: 3px solid #4caf50; }
+    .color-picker input[type="radio"].green:checked {
+      background-color: #4caf50; }
+    .color-picker input[type="radio"].green:hover {
+      background-color: #4caf50; }
+  .color-picker input[type="radio"].red {
+    outline: 3px solid #ff5253; }
+    .color-picker input[type="radio"].red:checked {
+      background-color: #ff5253; }
+    .color-picker input[type="radio"].red:hover {
+      background-color: #ff5253; }
+
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease-out; }
+  .menu-btn .btn-line {
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    transition: all 0.5s ease-out;
+    background: #fff; }
+    html.light .menu-btn .btn-line {
+      background: #404040; }
+  .menu-btn.close {
+    transform: rotate(180deg); }
+    .menu-btn.close .btn-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px); }
+    .menu-btn.close .btn-line:nth-child(2) {
+      opacity: 0; }
+    .menu-btn.close .btn-line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px); }
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden; }
+  .menu.show {
+    visibility: visible; }
+  .menu-branding, .menu-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden; }
+  .menu-nav {
+    margin: 0;
+    padding: 0;
+    background: #373737;
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
+    transition: all 0.5s ease-out; }
+    html.light .menu-nav {
+      background: #d9d9d9; }
+    .menu-nav.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-branding {
+    background: #444;
+    color: #fff;
+    transition: all 0.5s ease-out;
+    transform: translate3d(0, 100%, 0); }
+    html.light .menu-branding {
+      background: #E6E6E6;
+      color: #404040; }
+    .menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu .portrait {
+    width: 250px;
+    height: 250px;
+    background: url("../img/FRBIOPIC.jpg");
+    border-radius: 50%; }
+    html.yellow .menu .portrait {
+      border: solid 3px #eece1a; }
+    html.blue .menu .portrait {
+      border: solid 3px #2196f3; }
+    html.green .menu .portrait {
+      border: solid 3px #4caf50; }
+    html.red .menu .portrait {
+      border: solid 3px #ff5253; }
+  .menu .nav-item {
+    transform: translate3d(600px, 0, 0);
+    transition: all 0.5s ease-out; }
+    .menu .nav-item.show {
+      transform: translate3d(0, 0, 0); }
+    html.yellow .menu .nav-item.current > a {
+      color: #eece1a; }
+    html.blue .menu .nav-item.current > a {
+      color: #2196f3; }
+    html.green .menu .nav-item.current > a {
+      color: #4caf50; }
+    html.red .menu .nav-item.current > a {
+      color: #ff5253; }
+    .menu .nav-item.nav-link {
+      color: #fff; }
+      html.light .menu .nav-item.nav-link {
+        color: #404040; }
+        .current html.light .menu .nav-item.nav-link {
+          color: #ff5253; }
+  .menu .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    font-weight: 300;
+    text-decoration: none;
+    transition: all 0.5s ease-out; }
+    html.yellow .menu .nav-link:hover {
+      color: #eece1a; }
+    html.blue .menu .nav-link:hover {
+      color: #2196f3; }
+    html.green .menu .nav-link:hover {
+      color: #4caf50; }
+    html.red .menu .nav-link:hover {
+      color: #ff5253; }
+
+.nav-item:nth-child(1) {
+  transition-delay: 0.1s; }
+
+.nav-item:nth-child(2) {
+  transition-delay: 0.2s; }
+
+.nav-item:nth-child(3) {
+  transition-delay: 0.3s; }
+
+.nav-item:nth-child(4) {
+  transition-delay: 0.4s; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  background: #444;
+  color: #fff; }
+  body#bg-img {
+    background: url(../img/hal-gatewood-tZc3vjPCk-Q-unsplash.jpg);
+    background-size: cover;
+    background-attachment: fixed; }
+    body#bg-img:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: rgba(68, 68, 68, 0.8); }
+      html.light body#bg-img:after {
+        background: rgba(230, 230, 230, 0.8); }
+  html.light body {
+    background: #E6E6E6;
+    color: #404040; }
+
+.toggle-theme {
+  cursor: pointer;
+  transition: all 0.5s ease-out; }
+  .toggle-theme:hover {
+    transition: all 0.5s ease-out; }
+    html.yellow .toggle-theme:hover {
+      color: #eece1a; }
+    html.blue .toggle-theme:hover {
+      color: #2196f3; }
+    html.green .toggle-theme:hover {
+      color: #4caf50; }
+    html.red .toggle-theme:hover {
+      color: #ff5253; }
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 400; }
+  h1.lg-heading, h2.lg-heading, h3.lg-heading {
+    font-size: 6rem; }
+  h1.sm-heading, h2.sm-heading, h3.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background-color: rgba(73, 73, 73, 0.5); }
+    html.light h1.sm-heading, html.light h2.sm-heading, html.light h3.sm-heading {
+      background-color: rgba(235, 235, 235, 0.5); }
+
+a {
+  color: #fff;
+  text-decoration: none; }
+  html.light a {
+    color: #404040; }
+
+header {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-left: 1rem; }
+
+html.yellow .text-secondary {
+  color: #eece1a; }
+
+html.blue .text-secondary {
+  color: #2196f3; }
+
+html.green .text-secondary {
+  color: #4caf50; }
+
+html.red .text-secondary {
+  color: #ff5253; }
+
+main {
+  padding: 4rem;
+  min-height: calc(100vh-60px); }
+  main .icons {
+    margin-top: 1rem; }
+    main .icons a {
+      padding: 0.4rem; }
+      main .icons a:hover {
+        transition: all 0.5s ease-out; }
+        html.yellow main .icons a:hover {
+          color: #eece1a; }
+        html.blue main .icons a:hover {
+          color: #2196f3; }
+        html.green main .icons a:hover {
+          color: #4caf50; }
+        html.red main .icons a:hover {
+          color: #ff5253; }
+  main#home {
+    overflow: hidden; }
+    main#home h1 {
+      margin-top: 20vh; }
+
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+  grid-template-columns: repeat(3, 1fr); }
+  .about-info .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    background: url("../img/FRBIOPIC.jpg");
+    border-radius: 50%; }
+    html.yellow .about-info .bio-image {
+      border: solid 3px #eece1a; }
+    html.blue .about-info .bio-image {
+      border: solid 3px #2196f3; }
+    html.green .about-info .bio-image {
+      border: solid 3px #4caf50; }
+    html.red .about-info .bio-image {
+      border: solid 3px #ff5253; }
+  .about-info .bio {
+    grid-area: bio;
+    font-size: 1.5rem; }
+  .about-info .job-1 {
+    grid-area: job1; }
+  .about-info .job-2 {
+    grid-area: job2; }
+  .about-info .job-3 {
+    grid-area: job3; }
+  html.yellow .about-info h3 {
+    color: #c6ab0f; }
+  html.blue .about-info h3 {
+    color: #0c7cd5; }
+  html.green .about-info h3 {
+    color: #3d8b40; }
+  html.red .about-info h3 {
+    color: #ff1f20; }
+  .about-info .job {
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    padding: 0.5rem;
+    background: #515151; }
+    html.yellow .about-info .job {
+      border-bottom: solid 5px #eece1a; }
+    html.blue .about-info .job {
+      border-bottom: solid 5px #2196f3; }
+    html.green .about-info .job {
+      border-bottom: solid 5px #4caf50; }
+    html.red .about-info .job {
+      border-bottom: solid 5px #ff5253; }
+    html.light .about-info .job {
+      background: white; }
+
+.projects {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr); }
+  .projects img {
+    width: 100%;
+    border: 3px #fff solid; }
+    html.light .projects img {
+      border: 3px #404040 solid; }
+      html.light .projects img:hover {
+        opacity: 0.5;
+        transition: all 0.5s ease-out; }
+        html.yellow html.light .projects img:hover {
+          border-color: #eece1a; }
+        html.blue html.light .projects img:hover {
+          border-color: #2196f3; }
+        html.green html.light .projects img:hover {
+          border-color: #4caf50; }
+        html.red html.light .projects img:hover {
+          border-color: #ff5253; }
+    .projects img:hover {
+      opacity: 0.5;
+      transition: all 0.5s ease-out; }
+      html.yellow .projects img:hover {
+        border-color: #eece1a; }
+      html.blue .projects img:hover {
+        border-color: #2196f3; }
+      html.green .projects img:hover {
+        border-color: #4caf50; }
+      html.red .projects img:hover {
+        border-color: #ff5253; }
+
+.text-under-image {
+  background: #444;
+  color: #fff;
+  color: #fff;
+  padding: 1rem;
+  margin-top: 0%;
+  text-align: center; }
+  html.light .text-under-image {
+    background: #E6E6E6;
+    color: #404040; }
+  html.light .text-under-image {
+    color: #404040; }
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem; }
+  .boxes div {
+    font-size: 2rem;
+    border: 3px #fff solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem; }
+    html.light .boxes div {
+      border: 3px #404040 solid; }
+    .boxes div:hover {
+      padding: 1.3rem 2.3rem;
+      color: #404040; }
+      html.yellow .boxes div:hover {
+        background: #eece1a; }
+      html.blue .boxes div:hover {
+        background: #2196f3; }
+      html.green .boxes div:hover {
+        background: #4caf50; }
+      html.red .boxes div:hover {
+        background: #ff5253; }
+      .boxes div:hover span {
+        color: #404040; }
+
+.btn, .btn-dark, .btn-light {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem; }
+  .btn:hover, .btn-dark:hover, .btn-light:hover {
+    background: #ff5253;
+    color: #404040; }
+
+.btn-dark {
+  color: #fff; }
+  html.yellow .btn-dark {
+    background: #080701; }
+  html.blue .btn-dark {
+    background: #010c14; }
+  html.green .btn-dark {
+    background: black; }
+  html.red .btn-dark {
+    background: #520000; }
+
+.btn-light {
+  color: #333; }
+  html.yellow.light .btn-light {
+    background: #f5e279; }
+  html.blue.light .btn-light {
+    background: #82c4f8; }
+  html.green.light .btn-light {
+    background: #92cf94; }
+  html.red.light .btn-light {
+    background: #ffb8b8; }
+
+#main-footer {
+  bottom: 0;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  padding: 1rem;
+  overflow: hidden;
+  background-color: #2b2b2b;
+  color: #fff;
+  height: 60px; }
+  html.yellow.light #main-footer {
+    color: #f2d849; }
+  html.blue.light #main-footer {
+    color: #51adf6; }
+  html.green.light #main-footer {
+    color: #6ec071; }
+  html.red.light #main-footer {
+    color: #ff8586; }
+  html.light #main-footer {
+    color: #404040; }
+
+@media screen and (min-width: 1171px) {
+  .projects {
+    grid-template-columns: repeat(4, 1fr); } }
+
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr); } }
+
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+    ul.menu-nav .portrait,
+    div.menu-branding .portrait {
+      background: url("../img/FRBIOPIC_small.jpg");
+      width: 150px;
+      height: 150px; }
+  .menu-nav {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px; }
+  .menu-branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0); }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; }
+  .projects {
+    grid-template-columns: repeat(2, 1fr); } }
+
+@media screen and (max-width: 500px) {
+  main#home h1 {
+    margin-top: 10vh; }
+  .projects {
+    grid-template-columns: 1fr; } }
