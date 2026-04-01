@@ -1,30 +1,38 @@
-// color variables
-    $primary-color: #444;
-    $primary-color-dark: #444;
-    $primary-color-light: #E6E6E6;
-    $text-color-dark: #fff;
-    $text-color-light: #404040;  
-    
-    
-    $secondary-color: #ff5253;
-    $yellow-color: #eece1a;
-    $red-color: #ff5253;
-    $blue-color: #2196f3;
-    $green-color: #4caf50;
+/**
+ * SCSS Configuration
+ * Includes color variables, mixins for themes, and responsive media queries.
+ */
 
-    
-// ohter variables
+// Color variables
+$primary-color: #444;
+$primary-color-dark: #444;
+$primary-color-light: #E6E6E6;
+$text-color-dark: #fff;
+$text-color-light: #404040;  
+
+// Theme color accents
+$secondary-color: #ff5253;
+$yellow-color: #eece1a;
+$red-color: #ff5253;
+$blue-color: #2196f3;
+$green-color: #4caf50;
+
+// Home background configuration
 $show-image: true;
 $home-image: url(../img/hal-gatewood-tZc3vjPCk-Q-unsplash.jpg);
 $background-opacity: 0.8;
 
-
-
+/**
+ * Common transitions
+ */
 @mixin easeOut {
     transition: all 0.5s ease-out;
 }
 
-// set theme color
+/**
+ * Mixin to set theme colors (Background and Text)
+ * @param {boolean} $light-theme - Whether to apply light theme styles
+ */
 @mixin theme-colors($light-theme: true) {
     @if $light-theme {
       background: $primary-color-light;
@@ -33,17 +41,22 @@ $background-opacity: 0.8;
       background: $primary-color-dark;
       color: $text-color-dark;
     }
-  }
+}
 
-// set text color
+/**
+ * Function to retrieve the theme's background color
+ */
 @function set-theme-color($light-theme: true) {
     @if $light-theme {
       @return $primary-color-light;
     } @else {
       @return $primary-color-dark;
     }
-  }
+}
 
+/**
+ * Mixin for setting up the main background image with an overlay
+ */
 @mixin background {
     @if $show-image {
         &#bg-img {
@@ -69,18 +82,20 @@ $background-opacity: 0.8;
     }
 }
 
-
-
-// set text color
+/**
+ * Function to retrieve the theme's text color
+ */
 @function set-text-color($light-theme: true) {
- @if $light-theme {
-    @return $text-color-light;
-}   @else {
-    @return $text-color-dark;
-}
+    @if $light-theme {
+        @return $text-color-light;
+    } @else {
+        @return $text-color-dark;
+    }
 }
 
-// set the secondary color
+/**
+ * Function to set the secondary/accent color based on active theme
+ */
 @function set-secondary-color($yellow-theme: true, $red-theme: false, $green-theme: false, $blue-theme:false ) {
     @if $yellow-theme {
         @return $yellow-color;
@@ -93,26 +108,32 @@ $background-opacity: 0.8;
     }
 }
 
-// Media query mixins
+/**
+ * Responsive Media Query Mixins
+ */
 
+// Smartphones (Portrait and Landscape)
 @mixin mediaS {
     @media screen and (max-width: 500px) {
         @content;
     }
 }
 
+// Tablets and Small Laptops
 @mixin mediaM {
     @media screen and (max-width: 768px) {
         @content;
     }
 }
 
+// Desktops and Large Screens
 @mixin mediaL {
     @media screen and (min-width: 769px) and (max-width: 1170px) {
         @content;
     }
 }
 
+// Ultra-wide Screens
 @mixin mediaXL {
     @media screen and (min-width: 1171px) {
         @content;
