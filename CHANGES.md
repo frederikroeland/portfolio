@@ -2,6 +2,20 @@
 
 Major changes and features are tracked here as the project is built and changed.
 
+## 2026-09-04 — Published to GitHub Pages + CI registry fix
+
+- First CI run failed at `npm ci` with `E401 Incorrect or missing password`: the machine-global
+  `~/.npmrc` pointed npm at a private corporate registry (`artifactory.frrdev.com`), so the
+  generated `package-lock.json` contained private `resolved` URLs that GitHub runners cannot
+  authenticate to. (No credentials were committed — the token lives only in the user-global npmrc.)
+- Fix: added a project `.npmrc` pinning the public registry (`https://registry.npmjs.org/`) and
+  regenerated `package-lock.json` so every dependency resolves from the public registry. Verified a
+  clean `npm ci` + build + guard + unit tests locally.
+- Result: CI is green (build + deploy). Site is live at
+  `https://frederikroeland.github.io/portfolio/` (home, case studies, and redacted CV all 200).
+  Published via the GitHub Actions Pages source; the old `master` branch is retained but no longer
+  the publishing source (supersedes previous site content — FR-021 / T054).
+
 ## 2026-09-04 — Publish prep: keep PII/client names out of the public repo
 
 - The GitHub repo is public, so the real privacy denylist and source material must not be
