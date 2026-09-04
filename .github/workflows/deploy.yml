@@ -1,0 +1,60 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Materialise privacy denylist (optional; from secret)
+        run: |
+          if [ -n "${PRIVACY_DENYLIST_JSON}" ]; then
+            printf '%s' "$PRIVACY_DENYLIST_JSON" > src/data/denylist.local.json
+          fi
+        env:
+          PRIVACY_DENYLIST_JSON: ${{ secrets.PRIVACY_DENYLIST_JSON }}
+      - run: npx playwright install --with-deps chromium
+      - name: Quality gates
+        run: |
+          npm run typecheck
+          npm run lint
+          npm run stylelint
+          npm run build
+          npm run validate:html
+          npm run guard:privacy
+          npm run test:unit
+      - name: End-to-end tests
+        run: npm run test:e2e
+      - name: Lighthouse CI (performance & accessibility budgets)
+        run: npx --yes @lhci/cli@0.14.x autorun
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

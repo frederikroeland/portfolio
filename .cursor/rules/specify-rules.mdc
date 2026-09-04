@@ -1,0 +1,19 @@
+---
+alwaysApply: true
+---
+
+<!-- SPECKIT START -->
+Active feature: **001-portfolio-website** — see the plan at
+`specs/001-portfolio-website/plan.md` (spec: `specs/001-portfolio-website/spec.md`).
+
+Key stack: **framework-free static HTML + Tailwind CSS** (no Astro/React/Vue), with
+**TypeScript** (strict) for enhancement scripts, typed content modules (`src/data/*.ts`),
+and a build-time privacy guard. Build pipeline: **Tailwind CLI + esbuild + posthtml-include**;
+deployed to **GitHub Pages** via GitHub Actions (fully static, no backend). Pages: `src/pages/index.html`
++ 3–4 case studies at `src/pages/work/<slug>.html` (relative links, path-agnostic). DRY via HTML
+partials (`src/partials/`), typed data modules, and Tailwind `@apply`. Testing: `tsc`,
+ESLint/Prettier/Stylelint, `html-validate`, Vitest (data/DOM/privacy-guard), Playwright + axe-core.
+Hard constraints: LinkedIn-only contact (no email/phone/address, no form), all client names
+anonymized (privacy guard fails build on leaks), no analytics/cookies, downloadable redacted PDF CV.
+Content sourced only from `Knowledge/`. See `specs/001-portfolio-website/{research,data-model,quickstart}.md` and `contracts/`.
+<!-- SPECKIT END -->

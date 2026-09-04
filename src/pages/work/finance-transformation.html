@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <include src="partials/head.html"></include>
+  </head>
+  <body>
+    <include src="partials/header.html"></include>
+    <main id="main">
+      <!--slot:workHeader-->
+      <section class="section" aria-labelledby="work-narrative">
+        <div class="container-page max-w-3xl space-y-6">
+          <h2 id="work-narrative" class="heading-lg">The challenge</h2>
+          <p class="prose-body text-lg">
+            A leading European bank had grown through mergers and acquisitions, leaving it running
+            multiple institutions, each with its own systems and accounting frameworks. Maintaining
+            statutory and regulatory compliance across that landscape relied on complex, costly
+            workarounds, while regulators demanded ever higher granularity, quality, consistency and
+            frequency of data (BCBS&nbsp;239) under sustained pressure on operating costs.
+          </p>
+          <h2 class="heading-lg">The approach</h2>
+          <p class="prose-body text-lg">
+            As a subject-matter expert, I helped shape an application to enable finance
+            transformation, centralising and aligning data and accounting streams into a single
+            general-ledger capability. It captures accounted, contract, counterparty and reference
+            data as one source of truth, reuses existing subledgers with event-based accounting to
+            fill gaps, and adds automated reconciliation for balance sheet, P&amp;L and financial
+            disclosures. A control framework with validations, exception and suspense handling,
+            automated journals and dashboards keeps data quality high with minimal manual
+            intervention.
+          </p>
+          <h2 class="heading-lg">The outcome</h2>
+          <p class="prose-body text-lg">
+            The bank gained high-quality, granular, daily accounting data and a single source of
+            truth for financial figures, with automated reconciliation and a transparent control
+            framework. Decommissioning legacy systems simplified the application landscape, reduced
+            manual effort and lowered the cost of the Finance function, while supporting regulatory
+            demands such as BCBS&nbsp;239 and SRB reporting.
+          </p>
+        </div>
+      </section>
+      <!--slot:workCta-->
+    </main>
+    <include src="partials/footer.html"></include>
+    <script src="@@ROOT@@assets/main.js" defer></script>
+  </body>
+</html>

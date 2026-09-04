@@ -1,0 +1,17 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+.lighthouseci/
+
+# Source material with personal data / client names — never publish
+Knowledge/
+
+# Real privacy denylist (personal PII + client names) — never publish
+src/data/denylist.local.json
+*.log
+.env*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

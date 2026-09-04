@@ -1,0 +1,48 @@
+{
+  "name": "frederik-roeland-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal portfolio website for Frederik Roeland — framework-free static site.",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "tsx build.ts",
+    "preview": "node scripts/serve.mjs",
+    "dev": "tsx build.ts && node scripts/serve.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "stylelint": "stylelint \"src/styles/**/*.css\"",
+    "validate:html": "html-validate \"dist/**/*.html\"",
+    "guard:privacy": "tsx scripts/guard.ts",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test": "npm run typecheck && npm run lint && npm run stylelint && npm run build && npm run validate:html && npm run guard:privacy && npm run test:unit && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "@eslint/js": "^9.17.0",
+    "@playwright/test": "^1.49.1",
+    "@tailwindcss/cli": "^4.0.0",
+    "@types/node": "^22.10.5",
+    "@types/pdfkit": "^0.13.9",
+    "esbuild": "^0.24.2",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "html-validate": "^9.1.1",
+    "jsdom": "^25.0.1",
+    "pdfkit": "^0.15.2",
+    "posthtml": "^0.16.6",
+    "posthtml-include": "^2.0.1",
+    "prettier": "^3.4.2",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard": "^36.0.1",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.1",
+    "vitest": "^3.0.0"
+  }
+}
