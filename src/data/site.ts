@@ -23,8 +23,8 @@ export const currentRole = {
   scope:
     'Product owner for Finance & ESG solutions: Subledger & Accounting Hub, Hedge Accounting, Financial Consolidation, Data-Quality Monitoring, IFRS 9, ESG data management and Sustainability Reporting.',
   outcomes: [
-    '10% year-over-year revenue growth',
-    '60% gross margin',
+    '20% revenue growth',
+    '70% gross margin',
     'Customer NPS of 62',
     'Employee attrition below 5% over two years',
     'Leads a global team of 25',
