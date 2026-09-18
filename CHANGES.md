@@ -2,6 +2,16 @@
 
 Major changes and features are tracked here as the project is built and changed.
 
+## 2026-09-18 — Stabilise the Lighthouse CI performance gate
+
+- A rebuild failed because the homepage scored performance 0.93 against the hard `>=0.95` gate.
+  Lighthouse scores fluctuate on shared GitHub runners (CPU throttling variance), so a passing
+  site can dip below a hair-trigger threshold — a flaky deploy blocker, not a real regression.
+- Change (reviewer-approved): `.lighthouserc.json` now runs Lighthouse 3× per URL and asserts the
+  **median** (`numberOfRuns: 3`, `aggregationMethod: "median"`). Performance is still a blocking
+  error but at `>=0.90` (headroom over observed noise); **accessibility stays strict at `>=0.95`
+  (error)**; best-practices/SEO remain warnings. Real regressions still fail the build.
+
 ## 2026-09-04 — Published to GitHub Pages + CI registry fix
 
 - First CI run failed at `npm ci` with `E401 Incorrect or missing password`: the machine-global
